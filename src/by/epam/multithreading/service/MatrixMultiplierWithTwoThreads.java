@@ -56,20 +56,19 @@ public class MatrixMultiplierWithTwoThreads {
 		@Override
 		public void run() {
 			int startRow = 0;
-            if (!modulo) {
-                startRow = 1;
-            }
-
-            for (int row = startRow; row < result.length; row = row + 2) {
-                for (int i = 0; i < matrix1.length; i++) {
-                    int value = 0;
-                    for (int j = 0; j < matrix1.length; j++) {
-                        value = value + matrix1[row][j] * matrix2[j][i];
-                    }
-                    result[row][i] = value;
-                }
-            }
-				
+			if (!modulo) {
+				startRow = 1;
+			}
+			
+			for (int row = startRow; row < result.length; row = row + 2) {
+				for (int i = 0; i < matrix1.length; i++) {
+					int value = 0;
+					for (int j = 0; j < matrix1.length; j++) {
+						value = value + matrix1[row][j] * matrix2[j][i];
+					}
+					result[row][i] = value;
+				}
+			}
 		}		
 	}
 }
